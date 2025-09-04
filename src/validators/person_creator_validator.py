@@ -1,6 +1,6 @@
 from pydantic import BaseModel,constr, ValidationError
 from src.views.http_types.http_request import HttpRequest
-from src.errors.errors_types.http_unprocessable_entity import HttpUnprocessableEntity
+from src.errors.errors_types.http_unprocessable_entity import HttpUnprocessableEntityError
 
 def person_creator_validator(http_request: HttpRequest) -> None:
     class BodyData(BaseModel):
@@ -12,4 +12,4 @@ def person_creator_validator(http_request: HttpRequest) -> None:
     try:
         BodyData(**http_request.body)
     except ValidationError as e:
-        raise HttpUnprocessableEntity(e.errors()) from e
+        raise HttpUnprocessableEntityError(e.errors()) from e
