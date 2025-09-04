@@ -10,7 +10,6 @@ disable=
       C0303, #Trailing whitespace
       C0304, #Final newline missing
       W0719, #broad-exception-raised
-      W0707, #raise-missing-from
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
